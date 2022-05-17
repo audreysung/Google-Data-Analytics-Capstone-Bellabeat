@@ -34,7 +34,7 @@ Founded in 2013 by Urška Sršen and Sando Mur, Bellabeat is a high-tech company
 - sleepDay_merged -> Sleep
 - weightLogInfo_merged -> Weight
 
-**Assessing the credibility of the dataset with ROCCC**
+**Assessing Credibility with ROCCC**
 - Reliable: Low since we only have data for 30 individuals with unknown demographics.
 - Original: Low since the dataset was collected by a third-party source.
 - Comprehensive: Medium since dataset contains many variables including daily activity, heart rate, calories, steps, intensities, metabolic equivalents, sleep, and weight but does not have participant demographics.
