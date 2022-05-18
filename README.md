@@ -44,9 +44,9 @@ Founded in 2013 by Urška Sršen and Sando Mur, Bellabeat is a high-tech company
 - In Google Sheets, I checked the dataset for unique user IDs: 33 users for daily activity, daily calories, daily intensities, and daily steps; 24 users for sleep; and 8 users for weight. These numbers differ from 30 respondents involved in this survey.
 
 ## 3. Process
-First, I imported my data to R because it will be a useful tool to clean and analyze my data.
+For the Process phase, I decided to use R because it will be a helpful tool to clean and analyze my data. Below, I described how I cleaned the following datasets: daily activity, sleep, and weight.
 
-Importing Datasets:
+**Importing Datasets**
 ```
 daily_activity <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
 daily_calories <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/dailyCalories_merged.csv")
@@ -56,5 +56,54 @@ sleep_day <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/sleepDay_merged.c
 weight_log <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")
 ```
 
+**daily_activity**
+- Previewed dataset
+- Removed duplicates
+- Renamed ActivityDate to Date
+- Changed Date column from character to date type
+- Created new column with TotalActiveMinutes
+```
+# Preview
+head(daily_activity)
+```
+![image](https://user-images.githubusercontent.com/105669325/169112648-634f4aac-44a5-4453-bcde-83aac56776ee.png)
+```
+# Count unique respondants
+n_distinct(daily_activity$Id)
+[1] 33
+
+# Check for missing values
+sum(is.na(daily_activity))
+[1] 0
+
+# Check for duplicates 
+sum(duplicated(daily_activity))
+[1] 0
+
+# Clean dataset
+clean_names(daily_activity)
+```
+![image](https://user-images.githubusercontent.com/105669325/169121995-016e72cb-b072-4c76-9f75-1045f4ae7193.png)
+```
+# Rename Activity Date to Date and change Date colum from character to date type
+daily_activity <- daily_activity %>%
+  rename(Date = ActivityDate) %>%
+  mutate(Date = as_date(Date, format = "%m/%d/%Y"))
+
+# Create new column with TotalActiveMinutes
+daily_activity_updated <- daily_activity %>%
+  mutate (TotalActiveMinutes = VeryActiveMinutes + FairlyActiveMinutes + LightlyActiveMinutes)
+  
+# Confirm new table
+head(daily_activity_updated)
+```
+![image](https://user-images.githubusercontent.com/105669325/169126930-ccb72be2-f221-4323-850b-f329ac2d9e73.png)
+
+**sleep**
+- Previewed dataset
+- Removed duplicates
+- Renamed ActivityDate to Date
+- Changed Date column from character to date type
+- Created new column with TotalActiveMinutes
 
 
