@@ -3,7 +3,13 @@
 ### Date: May 2022
 #
 
-Below is my case study for the Google Data Analytics Capstone organized by the six steps of the data analysis process: **ask**, **prepare**, **process**, **analyze**, **share**, and **act**.
+Below is my case study for the Google Data Analytics Capstone organized by the six steps of the data analysis process: 
+### [Ask](#1-ask)
+### [Prepare](#2-prepare)
+### [Process](#3-process)
+### [Analyze](#4-analyze)
+### [Share](#5-share)
+### [Act](#6-act)
 
 ## Scenario
 Founded in 2013 by Urška Sršen and Sando Mur, Bellabeat is a high-tech company that manufactures health-focused smart products for women. For example, the Bellabeat app provides important health data related to activity, sleep, stress, menstrual cycle, and mindfulness habits. This app can connect to various smart wellness products including bracelets, necklaces, clips, watches, and water bottles. With its rapid growth, Bellabeat has a promising future to expand to the global smart device market. Our marketing analyst team has been asked to analyze smart device fitness data to help unlock new growth opportunities for Bellabeat. The insights we discover will then help guide marketing strategy for the company.
@@ -255,3 +261,8 @@ However, participants on average were getting the recommonded amount of sleep wi
 According to this [CDC article](https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html#InterpretedAdults), a BMI below 18.5 is underweight, 18.5 - 24.9 is healthy weight, 25.0 - 29.9 is overweight, and 30.0 and above is obese. Of note, these values apply to adults 20 years old and order. One limitation of our FitBit dataset is the lack of knowledge of respondent demographics. However, if we assume that the respondents in our data are 20 years old and order, they are on average overweight (25.19). Interestingly, the BMI values range from healthy weight (21.45) to obese (47.54). 
 
 ## 5. Share
+
+
+
+
+## 6. Act
