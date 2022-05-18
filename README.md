@@ -254,4 +254,4 @@ However, participants on average were getting the recommonded amount of sleep wi
 
 According to this [CDC article](https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html#InterpretedAdults), a BMI below 18.5 is underweight, 18.5 - 24.9 is healthy weight, 25.0 - 29.9 is overweight, and 30.0 and above is obese. Of note, these values apply to adults 20 years old and order. One limitation of our FitBit dataset is the lack of knowledge of respondent demographics. However, if we assume that the respondents in our data are 20 years old and order, they are on average overweight (25.19). Interestingly, the BMI values range from healthy weight (21.45) to obese (47.54). 
 
-## 4. Share
+## 5. Share
