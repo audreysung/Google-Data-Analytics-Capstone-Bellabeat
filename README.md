@@ -26,11 +26,8 @@ Founded in 2013 by Urška Sršen and Sando Mur, Bellabeat is a high-tech company
 - Included personal data such as minute-level output for physical activity, heart rate, and sleep monitoring
 - Made up of 18 CSV files organized in long format.
 
-**Main Tables for Analysis in My Case Study**
+**3 Main Tables for Analysis in My Case Study**
 - dailyActivity_merged -> Daily Activity
-- dailyCalories_merged -> Daily Calories
-- dailyintensities_merged -> Daily Intensities
-- dailySteps_merged -> Daily Steps
 - sleepDay_merged -> Sleep
 - weightLogInfo_merged -> Weight
 
@@ -47,3 +44,17 @@ Founded in 2013 by Urška Sršen and Sando Mur, Bellabeat is a high-tech company
 - In Google Sheets, I checked the dataset for unique user IDs: 33 users for daily activity, daily calories, daily intensities, and daily steps; 24 users for sleep; and 8 users for weight. These numbers differ from 30 respondents involved in this survey.
 
 ## 3. Process
+First, I imported my data to R because it will be a useful tool to clean and analyze my data.
+
+Importing Datasets:
+```
+daily_activity <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
+daily_calories <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/dailyCalories_merged.csv")
+daily_intensities <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/dailyIntensities_merged.csv")
+daily_steps <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/dailySteps_merged.csv")
+sleep_day <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/sleepDay_merged.csv")
+weight_log <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")
+```
+
+
+
