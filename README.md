@@ -152,6 +152,41 @@ head(sleep_day)
 **weight_log**
 - Previewed dataset
 - Checked for missing values, duplicates
+- Changed Date column from character to date type
 
+```
+# Preview
+head(weight_log)
+```
+![image](https://user-images.githubusercontent.com/105669325/169146995-ac799574-01db-45eb-abf0-331bddffb4bc.png)
 
+```
+# Count unique respondants
+n_distinct(weight_log$Id)
+[1] 8
 
+# Check for missing values
+sum(is.na(weight_log$WeightPounds))
+[1] 0
+
+# Check for duplicates 
+sum(duplicated(weight_log))
+[1] 3
+
+# Clean dataset
+clean_names(weight_log)
+```
+![image](https://user-images.githubusercontent.com/105669325/169147289-2d5fa9ce-5ce8-4d59-b49a-17fa93024d0d.png)
+
+```
+# Change Date colum from character to date type
+weight_log <- weight_log %>%
+  rename(Date2 = Date) %>%
+  mutate(Date2 = as_date(Date2, format = "%m/%d/%Y"))
+ 
+# Confirm new table
+head(weight_log)
+```
+![image](https://user-images.githubusercontent.com/105669325/169148427-e2f2cd58-d199-4710-8e20-ed523c35d961.png)
+
+## 4. Analyze
