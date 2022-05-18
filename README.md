@@ -58,10 +58,11 @@ weight_log <- read_csv("Downloads/Fitabase Data 4.12.16-5.12.16/weightLogInfo_me
 
 **daily_activity**
 - Previewed dataset
-- Removed duplicates
+- Checked for missing values, duplicates
 - Renamed ActivityDate to Date
 - Changed Date column from character to date type
 - Created new column with TotalActiveMinutes
+
 ```
 # Preview
 head(daily_activity)
@@ -85,7 +86,7 @@ clean_names(daily_activity)
 ```
 ![image](https://user-images.githubusercontent.com/105669325/169121995-016e72cb-b072-4c76-9f75-1045f4ae7193.png)
 ```
-# Rename Activity Date to Date and change Date colum from character to date type
+# Rename ActivityDate to Date and change Date colum from character to date type
 daily_activity <- daily_activity %>%
   rename(Date = ActivityDate) %>%
   mutate(Date = as_date(Date, format = "%m/%d/%Y"))
@@ -99,11 +100,58 @@ head(daily_activity_updated)
 ```
 ![image](https://user-images.githubusercontent.com/105669325/169126930-ccb72be2-f221-4323-850b-f329ac2d9e73.png)
 
-**sleep**
+**sleep_day**
 - Previewed dataset
-- Removed duplicates
-- Renamed ActivityDate to Date
+- Checked for missing values, duplicates
+- Removed duplicates and NA
+- Renamed SleepDay to Date
 - Changed Date column from character to date type
-- Created new column with TotalActiveMinutes
+
+```
+# Preview
+head(sleep_day)
+```
+![image](https://user-images.githubusercontent.com/105669325/169130984-bf1bd1ce-d278-449a-9ea6-2bdff2efe551.png)
+```
+# Count unique respondants
+n_distinct(sleep_day$Id)
+[1] 24
+
+# Check for missing values
+sum(is.na(sleep_day))
+[1] 0
+
+# Check for duplicates 
+sum(duplicated(sleep_day))
+[1] 3
+
+#Remove duplicates and NA
+sleep_day <- sleep_day %>% 
+  distinct() %>% 
+  drop_na()
+  
+# Check duplicates were removed
+sum(duplicated(sleep_day))
+[1] 0
+
+# Clean dataset
+clean_names(sleep_day)
+```
+![image](https://user-images.githubusercontent.com/105669325/169135027-feb8347a-263f-473e-aeac-4afa6e88e6c0.png)```
+```
+# Rename SleepDay to Date and change Date colum from character to date type
+sleep_day <- sleep_day %>%
+  rename(Date = SleepDay) %>%
+  mutate(Date = as_date(Date,format ="%m/%d/%Y"))
+ 
+# Confirm new table
+head(sleep_day)
+```
+![image](https://user-images.githubusercontent.com/105669325/169136179-f86c538d-f99e-4888-9d72-0959a6ac814d.png)
+
+**weight_log**
+- Previewed dataset
+- Checked for missing values, duplicates
+
 
 
