@@ -190,3 +190,57 @@ head(weight_log)
 ![image](https://user-images.githubusercontent.com/105669325/169148427-e2f2cd58-d199-4710-8e20-ed523c35d961.png)
 
 ## 4. Analyze
+Below are my summary statistics that I calculated with the help of R.
+
+**How many observations are there in each dataset**
+```
+nrow(daily_activity_updated)
+[1] 940
+
+nrow(sleep_day)
+[1] 410
+
+nrow(weight_log)
+[1] 67
+```
+
+**Summary statistics for daily activity**
+```
+daily_activity_updated %>%  
+  select(TotalSteps,
+         TotalDistance,
+         SedentaryMinutes,
+         TotalActiveMinutes) %>%
+  summary()
+  ```
+  ![image](https://user-images.githubusercontent.com/105669325/169151350-06df9eb5-d20b-4d36-9077-171c0d6ac876.png)
+In this table, participants walked from 0 steps to 36,019 steps with an average of 7,638 steps daily. On average, people were sedentary for 991.2 minutes (approximately 17 hours) while people were active for 227.5 minutes (approximately 4 hours). 
+
+
+**Summary statistics for sleep**
+```
+sleep_day %>%  
+  select(TotalSleepRecords,
+         TotalMinutesAsleep,
+         TotalTimeInBed) %>%
+  summary()
+  ```
+  ![image](https://user-images.githubusercontent.com/105669325/169154088-5c5cf6e4-7cb7-441d-b17b-1cc6ba908de1.png)
+In this table, participants were asleep for a minimum of 58 minutes (approximately 1 hour) to a maximum of 796 minutes (approximately 13 hours) with an average of 419.2 minutes (approximately 7 hours). They were also in bed for a minimum of 61 minutes (approximately 1 hour) to a maximum of 961 minutes (approximately 16 hours) with an average of 458.5 minutes (approximately 8 hours).
+
+**Summary statistics for weight**
+```
+weight_log %>%  
+  select(WeightPounds,
+         BMI) %>%
+  summary()
+```
+![image](https://user-images.githubusercontent.com/105669325/169155173-cbe5124d-8cbf-4e29-9f58-4da72e0da1f9.png)
+In this table, respondents weighed from a minimum of 116 pounds to a maximum of 294.3 pounds with an average of 158.8 pounds. They also had BMIs ranging from 21.45 to 47.54 with an average of 25.19.
+
+**Conclusions**
+Based on this dataset, participants walked an average of 7,638 steps daily. This is below the recommended threshold of 10,000 steps as noted in this [CDC article](https://www.cdc.gov/diabetes/prevention/pdf/postcurriculum_session8.pdf).
+
+However, participants on average were getting the recommonded amount of sleep with an average of approximately 7 hours. For adults, the [CDC recommends at least 7 hours of sleep](https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html).
+
+According to this [CDC article](https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html#InterpretedAdults), a BMI below 18.5 is underweight, 18.5 - 24.9 is healthy weight, 25.0 - 29.9 is overweight, and 30.0 and above is obese. Of note, these values apply to adults 20 years old and order. One limitation of our FitBit dataset is the lack of knowledge of respondent demographics. However, if we assume that the respondents in our data are 20 years old and order, they are on average overweight (25.19). Interestingly, the BMI values range from healthy weight (21.45) to obese (47.54). 
