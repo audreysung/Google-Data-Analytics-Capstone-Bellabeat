@@ -332,7 +332,15 @@ pie(slices,
 ![Rplot](https://user-images.githubusercontent.com/105669325/169399345-e50cfeba-e700-494f-ba75-d8dec79eaa11.png)
 
 
+Approximately 81% of the respondents are sedentary, 15.82% are lightly active, 1.11% are fairly active, and 1.74% are very active. The majority of FitBit users track their sedentary activities rather than their active activities. These users do not track their fitness consistently especially since the minority (approximately 1%) consists of fairly active and very active activities. According to the [Physical Activity Guidelines for Americans](https://www.cdc.gov/physicalactivity/walking/index.htm), adults are recommended to get at least 150 minutes of moderate-intensity aerobic physical activity or 75 minutes of vigorous-intensity physical activity, or an equivalent combination each week. These numbers would convert to at least 21.4 minutes of moderate-intensity aerobic physical activity daily or 10.7 minutes of vigorous-intensity physical activity daily. Based on the calculation below, 30 users met this recommendation of physical activity.
 
-
+```
+active_people <- daily_activity_updated %>%
+  filter(FairlyActiveMinutes >= 21.4 | VeryActiveMinutes>=10.7) %>% 
+  group_by(Id) %>% 
+  count(Id) 
+n_distinct(active_people)
+[1] 30
+```
 
 ## 6. Act
