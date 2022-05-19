@@ -265,7 +265,7 @@ Below are my data visualizations.
 
 **What is the relationship between steps taken in a day and sedentary minutes? How is the number of calories burnt affected by this relationship?**
 ```
-gplot(data = daily_activity_updated, aes(x = TotalSteps, y = SedentaryMinutes, color = Calories)) +
+ggplot(data = daily_activity_updated, aes(x = TotalSteps, y = SedentaryMinutes, color = Calories)) +
       geom_point() +
       labs(title = "Total Steps vs Sedentary Minutes", x = "Total Steps", y = "Sedentary Minutes")
 ```
@@ -289,15 +289,47 @@ ggplot(data = daily_activity_updated, aes(x = TotalSteps, y = TotalActiveMinutes
 
 Based on this data visualization, there is a positive linear relationship between the number of steps taken in a day and total active minutes. While total steps are positively correlated with calories burnt, the correlation between total active minutes and calories burnt is not as clear surprisingly. It may be due to the fact that I combined lightly active, fairly active, and very active minutes to be total active minutes.  
 
+
 **What is the relationship between minutes asleep and time in bed?**
 ```
-ggplot(data=sleep_day, aes(x=TotalMinutesAsleep, y=TotalTimeInBed)) + geom_point()
+ggplot(data = sleep_day, aes(x = TotalMinutesAsleep, y = TotalTimeInBed)) +
+      geom_point() +
+      geom_smooth() +
+      labs(title = "Total Minutes Asleep vs Total Time In Bed", x = "Total Minutes Asleep", y = "Total Time In Bed")
 ```
 
 
-![Rplot01](https://user-images.githubusercontent.com/105669325/169311795-0a477205-5f3d-4cba-9110-70cccfa2f11c.png)
+![Rplot01](https://user-images.githubusercontent.com/105669325/169396319-3c061794-5624-48e6-9717-94afe6e106ef.png)
+
 
 This data visualization shows a positive linear relationship between minutes asleep and time in bed. This makes sense because people sleep in their beds; therefore, the more time spent sleeping correlates with more time spent in bed. 
+
+
+**What is the percentage of activity in minutes that people spend on daily?**
+```
+# Calculating sum of total minutes
+sum(daily_activity_updated$VeryActiveMinutes, daily_activity_updated$FairlyActiveMinutes, daily_activity_updated$LightlyActiveMinutes, daily_activity_updated$SedentaryMinutes)
+[1] 1145628
+
+# Creating pie chart
+Activity <- daily_activity_updated %>%
+  summarise(Sum_VAM = sum(daily_activity_updated$VeryActiveMinutes/1145628*100), 
+            Sum_FAM = sum(daily_activity_updated$FairlyActiveMinutes/1145628*100), 
+            Sum_LAM = sum(daily_activity_updated$LightlyActiveMinutes/1145628*100), 
+            Sum_SEM = sum(daily_activity_updated$SedentaryMinutes/1145628*100),
+            Sum_TOTAL=sum(daily_activity_updated$VeryActiveMinutes+daily_activity_updated$FairlyActiveMinutes+daily_activity_updated$LightlyActiveMinutes+daily_activity_updated$SedentaryMinutes)) %>% 
+  round(digits = 2)
+
+slices <- c(Activity$Sum_VAM, Activity$Sum_FAM, Activity$Sum_LAM, Activity$Sum_SEM)
+lbls <- c("Very Active", "Fairly Active", "Lightly Active", "Sedentary")
+pie(slices,
+    labels=paste(lbls, slices, sep=" ", "%"),
+    col = rainbow(6),
+    main="Percentage Of Daily Activity In Minutes")
+```
+
+
+![Rplot](https://user-images.githubusercontent.com/105669325/169399345-e50cfeba-e700-494f-ba75-d8dec79eaa11.png)
 
 
 
