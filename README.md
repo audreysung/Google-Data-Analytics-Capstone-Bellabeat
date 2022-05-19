@@ -251,7 +251,7 @@ weight_log %>%
 In this table, respondents weighed from a minimum of 116 pounds to a maximum of 294.3 pounds with an average of 158.8 pounds. They also had BMIs ranging from 21.45 to 47.54 with an average of 25.19.
 
 
-**Conclusions**
+** Initial Conclusions**
 
 
 Based on this dataset, participants walked an average of 7,638 steps daily. This is below the recommended threshold of 10,000 steps as noted in this [CDC article](https://www.cdc.gov/diabetes/prevention/pdf/postcurriculum_session8.pdf).
@@ -344,10 +344,12 @@ n_distinct(active_people)
 ```
 
 ## 6. Act
-**Conclusions**
+**Final Conclusions**
+Let's remember our business task: ***analyze trends in FitBit usage to guide Bellabeat's marketing strategy for their smart devices***
+- On average, FitBit users in this dataset were overweight with a weight of 158.8 pounds and a BMI of 25.19.
+- FitBit users walked an average of 7,638 steps daily, which is below the recommended amount of 10,000 steps daily. However, people were active for an average of approximately 4 hours and sedentary for an average of approximately 17 hours. In addition, 30 FitBit users met the recommended amount of at least 21.4 minutes of moderate-intensity aerobic physical activity daily or 10.7 minutes of vigorous-intensity physical activity daily.
 
-final conclusion, is there additional data you could use to expand on your findings?
-business task: Analyze trends in FitBit usage to guide Bellabeat’s marketing strategy for their smart devices
+- final conclusion, is there additional data you could use to expand on your findings?
 
 **Recommendations**
 
