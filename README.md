@@ -344,3 +344,15 @@ n_distinct(active_people)
 ```
 
 ## 6. Act
+**Conclusions**
+
+final conclusion, is there additional data you could use to expand on your findings?
+business task: Analyze trends in FitBit usage to guide Bellabeat’s marketing strategy for their smart devices
+
+**Recommendations**
+
+how could your team and business apply your insights?
+
+**Next Steps**
+
+what next steps would you or your stakeholders take based on your findings?
