@@ -261,6 +261,44 @@ However, participants on average were getting the recommonded amount of sleep wi
 According to this [CDC article](https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html#InterpretedAdults), a BMI below 18.5 is underweight, 18.5 - 24.9 is healthy weight, 25.0 - 29.9 is overweight, and 30.0 and above is obese. Of note, these values apply to adults 20 years old and order. One limitation of our FitBit dataset is the lack of knowledge of respondent demographics. However, if we assume that the respondents in our data are 20 years old and order, they are on average overweight (25.19). Interestingly, the BMI values range from healthy weight (21.45) to obese (47.54). 
 
 ## 5. Share
+Below are my data visualizations.
+
+**What is the relationship between steps taken in a day and sedentary minutes? How is the number of calories burnt affected by this relationship?**
+```
+gplot(data = daily_activity_updated, aes(x = TotalSteps, y = SedentaryMinutes, color = Calories)) +
+      geom_point() +
+      labs(title = "Total Steps vs Sedentary Minutes", x = "Total Steps", y = "Sedentary Minutes")
+```
+
+
+![Rplot](https://user-images.githubusercontent.com/105669325/169315941-64eee83b-681d-4e4e-ad2b-b47ef0d2ff14.png)
+
+
+Based on this data visualization, there appears to be no correlation between the number of steps taken in a day and sedentary minutes since the data seems to be clustered around each other. However, this data visualization shows that total steps are positively correlated with calories burnt: the more steps people walk, the more calories they burn. 
+
+**What is the relationship between steps taken in a day and total active minutes? How is the number of calories burnt affected by this relationship?**
+```
+ggplot(data = daily_activity_updated, aes(x = TotalSteps, y = TotalActiveMinutes, color = Calories)) +
+  geom_point() +
+  geom_smooth() +
+  labs(title = "Total Steps vs Total Active Minutes", x = "Total Steps", y = "Total Active Minutes")
+```
+
+
+![Rplot](https://user-images.githubusercontent.com/105669325/169321159-cfc11e8e-07cb-4da8-8dbb-bf1eb4a71351.png)
+
+Based on this data visualization, there is a positive linear relationship between the number of steps taken in a day and total active minutes. While total steps are positively correlated with calories burnt, the correlation between total active minutes and calories burnt is not as clear surprisingly. It may be due to the fact that I combined lightly active, fairly active, and very active minutes to be total active minutes.  
+
+**What is the relationship between minutes asleep and time in bed?**
+```
+ggplot(data=sleep_day, aes(x=TotalMinutesAsleep, y=TotalTimeInBed)) + geom_point()
+```
+
+
+![Rplot01](https://user-images.githubusercontent.com/105669325/169311795-0a477205-5f3d-4cba-9110-70cccfa2f11c.png)
+
+This data visualization shows a positive linear relationship between minutes asleep and time in bed. This makes sense because people sleep in their beds; therefore, the more time spent sleeping correlates with more time spent in bed. 
+
 
 
 
