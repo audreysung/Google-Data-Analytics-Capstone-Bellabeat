@@ -348,6 +348,10 @@ n_distinct(active_people)
 Let's remember our business task: ***analyze trends in FitBit usage to guide Bellabeat's marketing strategy for their smart devices***
 - On average, FitBit users in this dataset were overweight with a weight of 158.8 pounds and a BMI of 25.19.
 - FitBit users walked an average of 7,638 steps daily, which is below the recommended amount of 10,000 steps daily. However, people were active for an average of approximately 4 hours and sedentary for an average of approximately 17 hours. In addition, 30 FitBit users met the recommended amount of at least 21.4 minutes of moderate-intensity aerobic physical activity daily or 10.7 minutes of vigorous-intensity physical activity daily.
+- FitBit users slept approximately 7 hours on average but were in bed longer for approximately 8 hours on average.
+- The more steps FitBit users walk, the more calories they burn. 
+- FitBit users mainly record their sedentary activities (approximately 81%) and rarely record their fairly and very active activities (approximately 1%).
+
 
 - final conclusion, is there additional data you could use to expand on your findings?
 
