@@ -3,7 +3,7 @@
 ### Date: May 2022
 #
 
-Below is my case study for the Google Data Analytics Capstone organized by the six steps of the data analysis process: 
+Here is my case study for the Google Data Analytics Capstone organized by the six steps of the data analysis process: 
 ### [Ask](#1-ask)
 ### [Prepare](#2-prepare)
 ### [Process](#3-process)
@@ -15,9 +15,10 @@ Below is my case study for the Google Data Analytics Capstone organized by the s
 Founded in 2013 by Urška Sršen and Sando Mur, Bellabeat is a high-tech company that manufactures health-focused smart products for women. For example, the Bellabeat app provides important health data related to activity, sleep, stress, menstrual cycle, and mindfulness habits. This app can connect to various smart wellness products including bracelets, necklaces, clips, watches, and water bottles. With its rapid growth, Bellabeat has a promising future to expand to the global smart device market. Our marketing analyst team has been asked to analyze smart device fitness data to help unlock new growth opportunities for Bellabeat. The insights we discover will then help guide marketing strategy for the company.
 
 ## 1. Ask
-**Business Task:** Analyze trends in FitBit usage to guide Bellabeat’s marketing strategy for their smart devices
+**Business Task** 
+- Analyze trends in FitBit usage to guide Bellabeat’s marketing strategy for their smart devices
 
-**Stakeholders:**
+**Stakeholders**
 - Urška Sršen: Cofounder and Chief Creative Officer
 - Sando Mur: Cofounder and key member of Bellabeat executive team
 
@@ -30,7 +31,7 @@ Founded in 2013 by Urška Sršen and Sando Mur, Bellabeat is a high-tech company
 - Involved 30 FitBit users 
 - Occured between 3/12/2016 - 5/12/2016 
 - Included personal data such as minute-level output for physical activity, heart rate, and sleep monitoring
-- Made up of 18 CSV files organized in long format.
+- Made up of 18 CSV files organized in long format
 
 **3 Main Tables for Analysis in My Case Study**
 - dailyActivity_merged -> Daily Activity
@@ -38,11 +39,11 @@ Founded in 2013 by Urška Sršen and Sando Mur, Bellabeat is a high-tech company
 - weightLogInfo_merged -> Weight
 
 **Assessing Credibility with ROCCC**
-- Reliable: Low since we only have data for 30 individuals with unknown demographics.
-- Original: Low since the dataset was collected by a third-party source.
-- Comprehensive: Medium since dataset contains many variables including daily activity, heart rate, calories, steps, intensities, metabolic equivalents, sleep, and weight but does not have participant demographics.
-- Current: Low since dataset was collected 6 years ago.
-- Cited:Low since dataset is from a publci source.
+- Reliable: Low since we only have data for 30 individuals with unknown demographics
+- Original: Low since the dataset was collected by a third-party source
+- Comprehensive: Medium since dataset contains many variables including daily activity, heart rate, calories, steps, intensities, metabolic equivalents, sleep, and weight but does not have participant demographics
+- Current: Low since dataset was collected 6 years ago
+- Cited: Low since dataset is from a public source
 
 **Limitations**
 - Only 30 people participated in this dataset, which brings up the concern of sampling bias. In addition, demographics like gender or age are unknown.
@@ -92,7 +93,7 @@ clean_names(daily_activity)
 ```
 ![image](https://user-images.githubusercontent.com/105669325/169121995-016e72cb-b072-4c76-9f75-1045f4ae7193.png)
 ```
-# Rename ActivityDate to Date and change Date colum from character to date type
+# Rename ActivityDate to Date and change Date column from character to date type
 daily_activity <- daily_activity %>%
   rename(Date = ActivityDate) %>%
   mutate(Date = as_date(Date, format = "%m/%d/%Y"))
@@ -131,7 +132,7 @@ sum(is.na(sleep_day))
 sum(duplicated(sleep_day))
 [1] 3
 
-#Remove duplicates and NA
+# Remove duplicates and NA
 sleep_day <- sleep_day %>% 
   distinct() %>% 
   drop_na()
@@ -145,7 +146,7 @@ clean_names(sleep_day)
 ```
 ![image](https://user-images.githubusercontent.com/105669325/169135027-feb8347a-263f-473e-aeac-4afa6e88e6c0.png)```
 ```
-# Rename SleepDay to Date and change Date colum from character to date type
+# Rename SleepDay to Date and change Date column from character to date type
 sleep_day <- sleep_day %>%
   rename(Date = SleepDay) %>%
   mutate(Date = as_date(Date,format ="%m/%d/%Y"))
@@ -185,7 +186,7 @@ clean_names(weight_log)
 ![image](https://user-images.githubusercontent.com/105669325/169147289-2d5fa9ce-5ce8-4d59-b49a-17fa93024d0d.png)
 
 ```
-# Change Date colum from character to date type
+# Change Date column from character to date type
 weight_log <- weight_log %>%
   rename(Date2 = Date) %>%
   mutate(Date2 = as_date(Date2, format = "%m/%d/%Y"))
@@ -251,14 +252,14 @@ weight_log %>%
 In this table, respondents weighed from a minimum of 116 pounds to a maximum of 294.3 pounds with an average of 158.8 pounds. They also had BMIs ranging from 21.45 to 47.54 with an average of 25.19.
 
 
-** Initial Conclusions**
+**Initial Conclusions**
 
 
 Based on this dataset, participants walked an average of 7,638 steps daily. This is below the recommended threshold of 10,000 steps as noted in this [CDC article](https://www.cdc.gov/diabetes/prevention/pdf/postcurriculum_session8.pdf).
 
-However, participants on average were getting the recommonded amount of sleep with an average of approximately 7 hours. For adults, the [CDC recommends at least 7 hours of sleep](https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html).
+However, participants were getting the recommended amount of sleep with an average of approximately 7 hours. For adults, the [CDC recommends at least 7 hours of sleep](https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html).
 
-According to this [CDC article](https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html#InterpretedAdults), a BMI below 18.5 is underweight, 18.5 - 24.9 is healthy weight, 25.0 - 29.9 is overweight, and 30.0 and above is obese. Of note, these values apply to adults 20 years old and order. One limitation of our FitBit dataset is the lack of knowledge of respondent demographics. However, if we assume that the respondents in our data are 20 years old and order, they are on average overweight (25.19). Interestingly, the BMI values range from healthy weight (21.45) to obese (47.54). 
+According to this [CDC article](https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html#InterpretedAdults), a BMI below 18.5 is underweight, 18.5 - 24.9 is healthy weight, 25.0 - 29.9 is overweight, and 30.0 and above is obese. Of note, these values apply to adults 20 years old and order. One limitation of our FitBit dataset is the lack of knowledge of respondent demographics. However, if we assume that the respondents in our data are 20 years old and order, they are on average overweight (25.19). 
 
 ## 5. Share
 Below are my data visualizations.
@@ -345,20 +346,28 @@ n_distinct(active_people)
 
 ## 6. Act
 **Final Conclusions**
-Let's remember our business task: ***analyze trends in FitBit usage to guide Bellabeat's marketing strategy for their smart devices***
 - On average, FitBit users in this dataset were overweight with a weight of 158.8 pounds and a BMI of 25.19.
 - FitBit users walked an average of 7,638 steps daily, which is below the recommended amount of 10,000 steps daily. However, people were active for an average of approximately 4 hours and sedentary for an average of approximately 17 hours. In addition, 30 FitBit users met the recommended amount of at least 21.4 minutes of moderate-intensity aerobic physical activity daily or 10.7 minutes of vigorous-intensity physical activity daily.
 - FitBit users slept approximately 7 hours on average but were in bed longer for approximately 8 hours on average.
 - The more steps FitBit users walk, the more calories they burn. 
 - FitBit users mainly record their sedentary activities (approximately 81%) and rarely record their fairly and very active activities (approximately 1%).
-
-
-- final conclusion, is there additional data you could use to expand on your findings?
+- For further studies, I would have obtained respondent demographics including age and gender. I also would have had more people input their weights since we only had 8 users from this dataset.
 
 **Recommendations**
 
-how could your team and business apply your insights?
+Let's remember our business task: ***analyze trends in FitBit usage to guide Bellabeat's marketing strategy for their smart devices***. Below are my recommendations to Bellabeat's smart devices to expand to the global market.
 
-**Next Steps**
+**Bellabeat App**
+- Allows consumers to record weight, BMI, and goal weight
+- Allows consumers to record their diet in order to track their calories
 
-what next steps would you or your stakeholders take based on your findings?
+**Leaf**
+- Light ups, vibrates, or makes a noise as reminder to be active if people have not recorded their daily activities
+- Offers matching styles for friends and significant others to promote bonding together through exercise
+
+**Time**
+- Records daily steps and provides congratulatory notifications once people reached 10,000 steps to serve as positive reinforcement 
+- Sends reminders to people to record their activities: "Try doing 5 jumping jacks! Have you accomplished this goal?" or "Have you recorded your exercise for today?"
+
+**Spring**
+- Implements a token system where users can obtain tokens for drinking enough water and being active in order to achieve prizes
