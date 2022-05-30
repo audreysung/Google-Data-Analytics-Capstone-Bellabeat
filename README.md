@@ -48,7 +48,7 @@ Founded in 2013 by Urška Sršen and Sando Mur, Bellabeat is a high-tech company
 **Limitations**
 - Only 30 people participated in this dataset, which brings up the concern of sampling bias. In addition, demographics like gender or age are unknown.
 - The timing of this dataset is not only old but also limited because it occurred in 2016 and happened for a span of 2 months.
-- In Google Sheets, I checked the dataset for unique user IDs: 33 users for daily activity, daily calories, daily intensities, and daily steps; 24 users for sleep; and 8 users for weight. These numbers differ from 30 respondents involved in this survey.
+- In Microsoft Excel, I checked the dataset for unique user IDs: 33 users for daily activity, daily calories, daily intensities, and daily steps; 24 users for sleep; and 8 users for weight. These numbers differ from 30 respondents involved in this survey.
 
 ## 3. Process
 For the Process phase, I decided to use R because it will be a helpful tool to clean and analyze my data. Below, I described how I cleaned the following datasets: daily activity, sleep, and weight.
